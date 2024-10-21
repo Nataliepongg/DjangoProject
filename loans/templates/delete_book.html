@@ -1,0 +1,17 @@
+<html lang="en"></html>
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Book</title>
+</head>
+<body>
+    <h1>Delete Book</h1>
+    <p>Are you sure you want to delete the book "<strong>{{ book.title }}</strong>" by {{ book.authors }}?</p>
+    
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit">Confirm</button>
+    </form>
+    
+    <a href="{% url 'list_books' %}">Cancel</a>
+</body>
+</html>

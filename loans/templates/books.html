@@ -1,0 +1,83 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            padding: 15px;
+            background-color: #f0f0f0;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        li:hover {
+            background-color: #e8e8e8;
+        }
+        .book-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .book-info strong {
+            font-size: 18px;
+        }
+        .btn-show {
+            display: inline-block;
+            padding: 8px 12px;
+            background-color: #3498db;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .btn-show:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>All Books</h1>
+        <ul>
+            {% for book in books %}
+            <li>
+                <div class="book-info">
+                    <div>
+                        <strong>{{ book.title }}</strong> by {{ book.authors }} 
+                        <br>
+                        <small>(Published: {{ book.publication_date.year }})</small> - 
+                        <small>ISBN: {{ book.isbn }}</small>
+                    </div>
+                    <a href="{% url 'get_book' book.id %}" class="btn-show">Show</a>
+                    <a href="{% url 'update_book' book.id %}" class="btn-show">Update</a>
+                    <a href="{% url 'delete_book' book.id %}" class="btn-show">Delete</a>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

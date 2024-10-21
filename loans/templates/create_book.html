@@ -1,0 +1,13 @@
+<html>
+    <head>
+        <title>My Library | New Book</title>
+    </head>
+    <body>
+        <h1>New Book</h1>
+        <form action="{% url 'create_book' %}" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Submit">
+        </form>
+    </body>
+</html>
