@@ -19,6 +19,7 @@ from django.urls import path
 from loans import views
 
 urlpatterns = [
+    path('', views.welcome, name='welcome'),  # Add this line to handle the root URL
     path('books/', views.list_books, name='list_books'),
     path('book/<int:book_id>/', views.get_book, name='get_book'),
     path('book/update/<int:book_id>/', views.update_book, name='update_book'),
