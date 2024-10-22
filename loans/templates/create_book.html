@@ -1,13 +1,14 @@
-<html>
-    <head>
-        <title>My Library | New Book</title>
-    </head>
+{% extends "base_page.html" %}
+
+{% block title %}
+<title>My Library | New Book</title>
+{% endblock %}
+
+{% block content %}
     <body>
         <h1>New Book</h1>
         <form action="{% url 'create_book' %}" method="post">
-            {% csrf_token %}
-            {{ form }}
-            <input type="submit" value="Submit">
+            {% include '__book_form.html' with form=form submit_label='Create' %}
         </form>
     </body>
-</html>
+{% endblock %}

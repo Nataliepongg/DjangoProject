@@ -1,16 +1,15 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% if is_update %}Update{% else %}Create{% endif %} Book</title>
-</head>
+{% extends "base_page.html" %}
+
+{% block title %}
+<title>{% if is_update %}Update{% else %}Create{% endif %} Book</title>
+{% endblock %}
+
+{% block content %}
 <body>
     <h1>{% if is_update %}Update{% else %}Create{% endif %} Book</h1>
     <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">{% if is_update %}Update{% else %}Create{% endif %} Book</button>
+        {% include '__book_form.html' with form=form submit_label='Update' %}
     </form>
     <a href="{% url 'list_books' %}" class="btn-back">Go to List of Books</a>
 </body>
-</html>
+{% endblock %}

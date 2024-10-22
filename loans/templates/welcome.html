@@ -1,9 +1,12 @@
-<html>
-    <head>
-        <title>My Library | Welcome</title>
-    </head>
-    <body>
-        <h1>Welcome to the library</h1>
-        <p>"<i>{{slogan}}</i>"</p>
-    </body>
-</html>
+{% extends "base_page.html" %}
+
+{% block title %}
+<title>My Library | Welcome</title>
+{% endblock %}
+
+{% block content %}
+<body>
+    <h1>Welcome to the library</h1>
+    <p>"<i>{{slogan}}</i>"</p>
+</body>
+{% endblock %}

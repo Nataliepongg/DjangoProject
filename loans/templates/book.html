@@ -1,54 +1,10 @@
+{% extends "base_page.html" %}
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book {{ book.title }}</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-        }
-        h1 {
-            color: #2c3e50;
-            font-size: 28px;
-            margin-bottom: 10px;
-        }
-        .authors, .publication-info {
-            font-size: 18px;
-            color: #7f8c8d;
-            margin-bottom: 15px;
-        }
-        .isbn {
-            font-size: 16px;
-            color: #16a085;
-            font-weight: bold;
-        }
-        .btn-back {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 15px;
-            background-color: #3498db;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        .btn-back:hover {
-            background-color: #2980b9;
-        }
-    </style>
-</head>
+{% block title %}
+<title>Book {{ book.title }}</title>
+{% endblock %}
+
+{% block content %}
 <body>
     <div class="container">
         <h1>{{ book.title }}</h1>
@@ -59,4 +15,4 @@
         <a href="{% url 'list_books' %}" class="btn-back">Go to List of Books</a>
     </div>
 </body>
-</html>
+{% endblock %}

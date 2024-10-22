@@ -1,8 +1,10 @@
-<html lang="en"></html>
-<head>
-    <meta charset="UTF-8">
-    <title>Delete Book</title>
-</head>
+{% extends "base_page.html" %}
+
+{% block title %}
+<title>Delete Book</title>
+{% endblock %}
+
+{% block content %}
 <body>
     <h1>Delete Book</h1>
     <p>Are you sure you want to delete the book "<strong>{{ book.title }}</strong>" by {{ book.authors }}?</p>
@@ -14,4 +16,4 @@
     
     <a href="{% url 'list_books' %}">Cancel</a>
 </body>
-</html>
+{% endblock %}
